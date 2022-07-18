@@ -325,6 +325,9 @@ header .top.on .fas.fa-times.mclose{
 .swiper.mySwiper .swiper-pagination-bullet:nth-child(3){
     bottom: 0;
 }
+.slick-arrow.slick-hidden {
+    display: none;
+}
 .top_nav{
     display: none;
 }
@@ -357,6 +360,14 @@ header .top.on .fas.fa-times.mclose{
     height: 60%;
     box-sizing: border-box;
     margin: 0 auto;
+}
+.swiper.mySwiper3 .swiper-button-next{
+    right: 25%;
+    top: 65%;
+}
+.swiper.mySwiper3 .swiper-button-prev{
+    left: 25%;
+    top: 65%;
 }
 .circle_box{
     position: relative;
@@ -409,13 +420,9 @@ header .top.on .fas.fa-times.mclose{
     width: 60%;
 }
 video {
-    position: absolute;
     right: 0;
     top: -10%;
-    z-index: -1;
-    border-radius: 30px;
     max-width: 95%;
-    box-shadow: 8px -8px rgb(255,241,0);
 }
 .right_bot {
     width: 100%;

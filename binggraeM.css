@@ -191,11 +191,6 @@ header .top.on .lang a{
 .swiper.mySwiper .swiper-pagination-bullet{
     display: none;
 }
-.swiper.mySwiper .swiper-button-next,
-.swiper.mySwiper .swiper-button-prev{
-    display: block;
-    right: -5px;
-}
 .swiper.mySwiper .swiper-button-next::after,
 .swiper.mySwiper .swiper-button-prev::after{
    font-size: 2rem;
@@ -232,6 +227,14 @@ header .top.on .lang a{
 .swiper.mySwiper3{
     width: 85%;
     height: 60%;
+}
+.swiper.mySwiper3 .swiper-button-next{
+    right: 15%;
+    top: 60%;
+}
+.swiper.mySwiper3 .swiper-button-prev{
+    left: 15%;
+    top: 60%;
 }
 .circle_box{
     width: 220px;

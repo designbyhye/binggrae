@@ -1,49 +1,34 @@
 // 전체 세로 슬라이드
-var swiper = new Swiper(".mySwiper4", {
-  direction: "vertical",
-  slidesPerView: 1,
-  spaceBetween: 30,
-  mousewheel: true,
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  on: {
-    slideChange: function() {
-        if (this.realIndex == 0) {
-            $("header").removeClass("on");
-        } else {
-          $("header").addClass("on");
-        }
-    } //스와이퍼에서 카운팅하기
-}
+var slider = $(".myslider");
+slider
+.slick({
+vertical: true,
+infinite: false,
+arrows:false,
+dots: true
 });
 
-//태블릿,모바일 nav
-$(document).ready(function(){
-  $(".mmenu").click(function(){
-      $(".top").addClass("on");
-  });
-  $(".mclose").click(function(){
-      $(".top").removeClass("on");
-  });
-});
-
-$(".nav div > span").click(function() {
-  $(this).addClass('on').siblings().removeClass('on');
-  $("#" + $(this).data('id')).addClass('on').siblings().removeClass('on');
-  $(this).children("ul").slideToggle();
-  //this의 자식 요소를 슬라이드다운
-  $(".nav div > span").not(this).children("ul").slideUp();
-  //this와 관계없는 자식 요소를 슬라이드업
-});
+slider.on('wheel', (function(e) {
+  e.preventDefault();
+  if (e.originalEvent.deltaY > 0) {
+    $(this).slick('slickNext');
+  } else {
+    $(this).slick('slickPrev');
+  }
+  
+  if ($(this).slick('slickCurrentSlide') == 0) {
+    $("header").removeClass("on");
+  } else {
+    $("header").addClass("on");
+  }
+}));
 
 //탑부분 슬라이더
 var swiper = new Swiper(".mySwiper", {
   spaceBetween: 0,
   centeredSlides: true,
   autoplay: {
-    delay: 300000,
+    delay: 3000,
     disableOnInteraction: false,
   },
   pagination: {
@@ -55,7 +40,6 @@ var swiper = new Swiper(".mySwiper", {
     prevEl: ".swiper-button-prev",
   },
 });
-
 
 
 //하단 cf부분 슬라이더
@@ -116,6 +100,7 @@ $(function () {
   });
 });
 
+
 //footer 패밀리사이트
 var sel = document.querySelector('#site_select');
 var wrap = document.querySelector('.onoff');
@@ -125,3 +110,23 @@ function createEle() {
   return false;
 }
 sel.addEventListener('click', createEle);
+
+  
+//태블릿,모바일 nav
+$(document).ready(function(){
+$(".mmenu").click(function(){
+    $(".top").addClass("on");
+});
+$(".mclose").click(function(){
+    $(".top").removeClass("on");
+});
+});
+
+$(".nav div > span").click(function() {
+$(this).addClass('on').siblings().removeClass('on');
+$("#" + $(this).data('id')).addClass('on').siblings().removeClass('on');
+$(this).children("ul").slideToggle();
+//this의 자식 요소를 슬라이드다운
+$(".nav div > span").not(this).children("ul").slideUp();
+//this와 관계없는 자식 요소를 슬라이드업
+});
